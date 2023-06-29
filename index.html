@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jelly Shop</title>
+  <img href="https://th.bing.com/th/id/OIP.4SJFCtSozkiSF_45K9hocAHaEK?pid=ImgDet&rs=1">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+  
+  <section id="signupSection">
+    <h2>Create an Account</h2>
+    <form id="signupForm">
+      <label for="signupName">Name:</label>
+      <input type="text" id="signupName" required>
+      <label for="signupEmail">Email:</label>
+      <input type="email" id="signupEmail" required>
+      <label for="signupPassword">Password:</label> 
+      <input type="password" id="signupPassword" required><br>
+      <button type="submit">Sign Up</button>
+    </form>
+    <p>Already have an account? <a href="#" id="loginLink">Log in here</a></p>
+  </section>
+
+  <section id="loginSection">
+    <h2>Log In</h2>
+    <form id="loginForm">
+      <label for="email">Email:</label>
+      <input type="email" id="email" required>
+      <label for="password">Password:</label>
+      <input type="password" id="password" required><br>
+      <button type="submit">Log In</button>
+    </form>
+    <p>Don't have an account? <a href="#signupSection" id="signupLink">Sign up here</a></p>
+  </section>
+
+  <section id="hiddenSection" style="display: none;">
+    <h2 >Welcome to the Jelly Shop</h2>
+
+    <div id="balanceSection">
+      <h3>Balance:</h3>
+      <p id="balance">$0.00</p>
+    </div>
+    <div>
+      <h3>Deposit Money</h3>
+      <label for="depositAmount">Amount:</label>
+      <input type="number" id="depositAmount" step="0.01">
+      <button id="depositBtn">Deposit</button>
+    </div>
+    <div>
+      <h3>Withdraw Money</h3>
+      <label for="withdrawAmount">Amount:</label>
+      <input type="number" id="withdrawAmount" step="0.01">
+      <button id="withdrawBtn">Withdraw</button>
+    </div>
+    <div>
+      <h3>Buy Jelly Candy</h3>
+      <form id="orderForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required>
+        <label for="flavor">Flavor:</label>
+        <select id="flavor" required>
+          <option value="Strawberry">Strawberry</option>
+          <option value="Grape">Grape</option>
+          <option value="Orange">Orange</option>
+          <option value="Lemon">Lemon</option>
+          <option value="fishJelly">fish jelly</option>
+          <option value="cocaJelly">coca jelly</option>
+          <option value="snackJelly">snack jelly</option>
+        </select>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" min="1" required>
+        <button type="submit">Place Order</button>
+      </form>
+    </div>
+    <button id="logout"><a href="#signupSection">Logout</a></button>
+    <h3>Sales History</h3>
+    <ul id="salesList"></ul>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
