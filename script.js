@@ -14,7 +14,7 @@ $(document).ready(function() {
     event.preventDefault();
     var email = $("#email").val();
     var password = $("#password").val();
-    if (checkLoginCredentials(email, password)) {
+    if (checkLogin(email, password)) {
       loginSection.hide();
       hiddenSection.show();
       $("#signupSection").hide();
@@ -22,7 +22,14 @@ $(document).ready(function() {
       alert("Invalid email or password. Please try again.");
     }
   });
-
+  function checkLogin(email, password) {
+    var storedUser = localStorage.getItem("user");
+    if (storedUser) {
+      var user = JSON.parse(storedUser);
+      return user.email === email && user.password === password;
+    }
+    return false;
+  }
   signupForm.submit(function(event) {
     event.preventDefault();
     var name = $("#signupName").val();
@@ -43,16 +50,6 @@ $(document).ready(function() {
     
   });
 
-
-  function checkLoginCredentials(email, password) {
-    var storedUser = localStorage.getItem("user");
-    if (storedUser) {
-      var user = JSON.parse(storedUser);
-      return user.email === email && user.password === password;
-    }
-    return false;
-  }
-
   function signUpUser(name, email, password) {
     var user = {
       name: name,
@@ -62,9 +59,7 @@ $(document).ready(function() {
     localStorage.setItem("user", JSON.stringify(user));
   }
 
-  function isLoggedIn() {
-    return localStorage.getItem("user") !== null;
-  }
+
   
   $("#depositBtn").click(function(event) {
     event.preventDefault();
@@ -116,7 +111,6 @@ $(document).ready(function() {
     updateSalesHistory(orderDetails);
   });
 
-  
 
   function updateBalance(newBalance) {
     balanceSpan.text(newBalance.toFixed(2));
