@@ -8,7 +8,7 @@ body {
   
 }
 body {
-  background-image: url('https://th.bing.com/th/id/OIP.OmEZlTzPoigfBYwSJg-A3wHaEW?pid=ImgDet&rs=1');
+  background-image: url('./img/colorful-jelly-worms.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -78,9 +78,15 @@ button:hover {
 }
 
 #salesList {
+  text-align: right;
   margin-top: 20px;
   padding-left: 0;
   list-style-type: none;
+}
+
+#ListJelly{
+  text-align: right;
+  text-decoration: overline;
 }
 
 #salesList li {

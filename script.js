@@ -33,22 +33,17 @@ $(document).ready(function() {
     $("#signupName, #signupEmail, #signupPassword").val("");
   });
 
-  $("#logoutBtn").click(function(event) {
-    event.preventDefault();
-    localStorage.removeItem("user");
-    localStorage.removeItem("balance");
-    localStorage.removeItem("salesHistory");
-    window.location.href = "login.html";
-  });
-
-  if (isLoggedIn()) {
-    loginSection.hide();
-    hiddenSection.show();
-    $("#signupSection").hide();
-  } else {
+  $("#logou").click(function(event) {
+    
+    localStorage.clear()
+    
     loginSection.show();
     hiddenSection.hide();
-  }
+    $("#signupSection").show()
+
+    
+  });
+
 
   function checkLoginCredentials(email, password) {
     var storedUser = localStorage.getItem("user");
