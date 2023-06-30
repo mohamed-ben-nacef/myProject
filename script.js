@@ -33,10 +33,9 @@ $(document).ready(function() {
     $("#signupName, #signupEmail, #signupPassword").val("");
   });
 
-  $("#logou").click(function(event) {
-    
+  $("#logout").click(function(event) {
+    event.preventDefault()
     localStorage.clear()
-    
     loginSection.show();
     hiddenSection.hide();
     $("#signupSection").show()
